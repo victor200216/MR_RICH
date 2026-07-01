@@ -198,6 +198,12 @@
     box-shadow:var(--shadow); border:1px solid rgba(58,34,19,.06);
     position:relative;
   }
+  .dish-media{
+    border-radius:16px; overflow:hidden; margin-bottom:16px;
+  }
+  .dish-media img{
+    width:100%; height:auto; display:block;
+  }
   .dish-top{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px;}
   .dish h4{font-size:17.5px; color:var(--brown);}
   .price{
