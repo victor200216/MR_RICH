@@ -12,8 +12,20 @@
 
 </head>
 
-<body>
+<body class="welcome-active">
 
+<div class="snow-container" aria-hidden="true"></div>
+
+<div class="welcome-screen" id="welcome-screen" role="dialog" aria-modal="true" aria-labelledby="welcome-title">
+  <div class="welcome-card">
+    <img class="welcome-logo" src="images/logo-centro-mr-rich.png" alt="">
+    <p class="eyebrow">Aguachica · Comidas rápidas</p>
+    <h1 id="welcome-title">¡Bienvenido a Mr. Rich!</h1>
+    <p class="welcome-copy">El sabor que se desgrana en cada bocado.</p>
+    <button class="welcome-enter-btn" id="enter-with-music" type="button">Entrar al menú</button>
+    <p class="welcome-status" id="welcome-status" role="status" aria-live="polite"></p>
+  </div>
+</div>
 
 <!-- NAV -->
 <header class="nav">
@@ -40,13 +52,43 @@
       <h1>El sabor que se<br>desgrana en<br><em>cada bocado</em></h1>
       <p class="lede">Salchipapas cargadas, burguers en pan brioche y perros que no se andan con rodeos. Todo hecho al momento, con las salsas de la casa que nos identifican.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#menu">Ver el menú</a>
-        <a class="btn btn-ghost" href="https://wa.me/573186927271" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn btn-primary" href="#menu">
+          Ver el menú
+          <div class="snow-cluster snow-btn" data-snow-parent="btn-menu" aria-hidden="true">
+            <span class="flake f1"></span>
+            <span class="flake f2"></span>
+            <span class="flake f3"></span>
+            <span class="flake f4"></span>
+            <span class="flake f5"></span>
+          </div>
+        </a>
+        <a class="btn btn-ghost" href="https://wa.me/573186927271" target="_blank" rel="noopener">
+          Pedir por WhatsApp
+          <div class="snow-cluster snow-btn" data-snow-parent="btn-whatsapp" aria-hidden="true">
+            <span class="flake f1"></span>
+            <span class="flake f2"></span>
+            <span class="flake f3"></span>
+            <span class="flake f4"></span>
+            <span class="flake f5"></span>
+          </div>
+        </a>
       </div>
     </div>
     <div class="hero-visual">
       <div class="bite-badge">
-        <img class="hero-logo" src="images/logo-centro-mr-rich.png" alt="Logo Mr. Rich">
+        <div class="logo-container">
+          <img class="hero-logo" src="images/logo-centro-mr-rich.png" alt="Logo Mr. Rich">
+          <div class="snow-cluster snow-logo-cluster" data-snow-parent="logo" aria-hidden="true">
+            <span class="f1"></span>
+            <span class="f2"></span>
+            <span class="f3"></span>
+            <span class="f4"></span>
+            <span class="f5"></span>
+            <span class="f6"></span>
+            <span class="f7"></span>
+            <span class="f8"></span>
+          </div>
+        </div>
         <div class="steam"><span></span><span></span><span></span></div>
       </div>
     </div>
@@ -54,7 +96,7 @@
   <div class="wrap hero-stats">
     <div><strong>+30</strong><span>PLATOS EN LA CARTA</span></div>
     <div><strong>100%</strong><span>SALSAS CASERAS</span></div>
-    <div><strong>Hasta 5</strong><span>PERSONAS EN PICADAS</span></div>
+    <div><strong>Picadas</strong><span>HASTA PARA 5 PERSONAS</span></div>
   </div>
 </section>
 
@@ -338,20 +380,21 @@
   </div>
 </footer>
 
+<div class="music-player">
+  <audio id="background-music" loop preload="none">
+    <source src="music/1musica.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
+  <button class="music-toggle-btn" id="music-toggle-btn" type="button" aria-pressed="false">
+    <span aria-hidden="true">🎵</span>
+    <span class="music-toggle-label">Reproducir música</span>
+  </button>
+  <span class="music-status" id="music-status" role="status" aria-live="polite"></span>
+</div>
+
 <a class="float-wa" href="https://wa.me/573186927271" target="_blank" rel="noopener" aria-label="Pedir por WhatsApp">📲</a>
 
-<script>
-  const tabs = document.querySelectorAll('.tab');
-  const cats = document.querySelectorAll('.menu-category');
-  tabs.forEach(tab=>{
-    tab.addEventListener('click', ()=>{
-      tabs.forEach(t=>t.classList.remove('active'));
-      cats.forEach(c=>c.classList.remove('active'));
-      tab.classList.add('active');
-      document.getElementById(tab.dataset.cat).classList.add('active');
-    });
-  });
-</script>
+<script src="Js/JavaScript.js"></script>
 
 </body>
 </html>

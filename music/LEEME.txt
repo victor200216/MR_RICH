@@ -1,0 +1,6 @@
+Coloca aquí tu archivo de música de fondo con el nombre exacto: musica.mp3
+
+Ruta esperada por el código: music/musica.mp3
+(está referenciada en index.html, dentro de la etiqueta <audio>)
+
+Si usas otro nombre de archivo, actualiza el "src" del <source> en index.html.
