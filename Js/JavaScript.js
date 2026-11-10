@@ -66,6 +66,29 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    const nav = document.querySelector('header.nav');
+    const navToggle = document.querySelector('.burger');
+    const navLinks = document.querySelectorAll('#primary-nav a');
+
+    function closeNavigation() {
+        nav.classList.remove('menu-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+    }
+
+    navToggle.addEventListener('click', () => {
+        const isOpen = nav.classList.toggle('menu-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+    });
+
+    navLinks.forEach(link => link.addEventListener('click', closeNavigation));
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            closeNavigation();
+        }
+    });
+
     const music = document.getElementById('background-music');
     const musicButton = document.getElementById('music-toggle-btn');
     const musicLabel = musicButton.querySelector('.music-toggle-label');
