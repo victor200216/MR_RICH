@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
             for (let i = 0; i < 36; i++) {
                 const snowflake = document.createElement('span');
                 const duration = 8 + Math.random() * 12;
-                const size = 2 + Math.random() * 4;
-
+                const size = (2 + Math.random() * 4) * 1.5; // Adjusted size copo de nieve
                 snowflake.className = 'snowflake';
                 snowflake.style.left = `${Math.random() * 100}%`;
                 snowflake.style.width = `${size}px`;
@@ -63,6 +62,27 @@ document.addEventListener("DOMContentLoaded", function() {
             cats.forEach(category => category.classList.remove('active'));
             tab.classList.add('active');
             document.getElementById(tab.dataset.cat).classList.add('active');
+        });
+    });
+
+    document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const images = Array.from(carousel.querySelectorAll('img[data-variant]'));
+        const variantLabel = carousel.querySelector('[data-carousel-variant]');
+        let currentIndex = 0;
+
+        function showImage(index) {
+            currentIndex = (index + images.length) % images.length;
+            images.forEach((image, imageIndex) => {
+                image.hidden = imageIndex !== currentIndex;
+            });
+            variantLabel.textContent = images[currentIndex].dataset.variant;
+        }
+
+        carousel.querySelector('[data-carousel-previous]').addEventListener('click', () => {
+            showImage(currentIndex - 1);
+        });
+        carousel.querySelector('[data-carousel-next]').addEventListener('click', () => {
+            showImage(currentIndex + 1);
         });
     });
 
